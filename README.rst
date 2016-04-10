@@ -14,7 +14,7 @@ Documentation
 Features
 --------
 
-* Example of how to add documentation to any project.
+* Collection of software programs implementing basic math and physics equations
 
 Contribute
 ----------
