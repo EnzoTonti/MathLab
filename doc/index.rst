@@ -27,8 +27,8 @@ Contribute
 ----------
 
 * Documentation: https://github.com/decarlof/mathlab/tree/master/doc
-* Issue Tracker: https://github.com/decarlof/mathlab/docs/issues
-* Source Code: https://github.com/decarlof/mathlab/mathlab
+* Issue Tracker: https://github.com/decarlof/mathlab/issues
+* Source Code: https://github.com/decarlof/mathlab
 
 Content
 -------
