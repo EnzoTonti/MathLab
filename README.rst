@@ -19,7 +19,7 @@ Features
 Contribute
 ----------
 
-* Documentation: https://github.com/decarlof/mathlab/tree/master/doc
-* Issue Tracker: https://github.com/decarlof/mathlab/docs/issues
-* Source Code: https://github.com/decarlof/mathlab/project
+* Documentation: https://github.com/enzotonti/mathlab/tree/master/doc
+* Issue Tracker: https://github.com/enzotonti/mathlab/docs/issues
+* Source Code: https://github.com/enzotonti/mathlab/project
 
