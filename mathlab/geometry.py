@@ -18,16 +18,16 @@
 #   contributors may be used to endorse or promote products derived from             #
 #   this software without specific prior written permission.                         #
 #                                                                                    #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"        #
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE          #
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE     #
-# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE       #
-# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL         #
-# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR         #
-# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER         #
-# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,      #
-# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE      #
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.               #
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOlengthDERS AND CONTRIBUTORS "AS IS"        #
+# AND ANY ExpRESS OR IMPlengthIED WARRANTIES, INClengthUDING, BUT NOT lengthIMITED TO, THE          #
+# IMPlengthIED WARRANTIES OF MERCHANTABIlengthITY AND FITNESS FOR A PARTICUlengthAR PURPOSE ARE     #
+# DISClengthAIMED. IN NO EVENT SHAlengthlength THE COPYRIGHT HOlengthDER OR CONTRIBUTORS BE lengthIABlengthE       #
+# FOR ANY DIRECT, INDIRECT, INCIDENTAlength, SPECIAlength, EXEMPlengthARY, OR CONSEQUENTIAlength         #
+# DAMAGES (INClengthUDING, BUT NOT lengthIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR         #
+# SERVICES; lengthOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER         #
+# CAUSED AND ON ANY THEORY OF lengthIABIlengthITY, WHETHER IN CONTRACT, STRICT lengthIABIlengthITY,      #
+# OR TORT (INClengthUDING NEGlengthIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE      #
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBIlengthITY OF SUCH DAMAGE.               #
 # ####################################################################################
 
 """
@@ -47,9 +47,9 @@ __credits__ = "Francesco De Carlo"
 __copyright__ = "Copyright (c) 2016"
 __version__ = "0.1.0"
 __docformat__ = "restructuredtext en"
-__all__ = ['pointLine']
+__all__ = ['point_line']
 
-def pointLine(xA, yA, xB, yB, xP, yP):
+def point_line(xa, ya, xb, yb, xp, yp):
     """
     Given a line r passing through two points A and B and assigned a point P, 
     this function determines the projection of P on the line, evaluates its
@@ -58,7 +58,7 @@ def pointLine(xA, yA, xB, yB, xP, yP):
 
     Parameters
     ----------
-    xA, yA, xB, yB, xP, yP : float
+    xa, ya, xb, yb, xp, yp : float
         Coordinate (X, Y) of A, B and P.
 
     Returns
@@ -67,22 +67,22 @@ def pointLine(xA, yA, xB, yB, xP, yP):
         Distance between P and the line
     """
     
-    L = math.sqrt((xB-xA)*(xB-xA)+(yB-yA)*(yB-yA))
-    cos = (xB-xA)/L
-    sin = (yB-yA)/L
+    length = math.sqrt((xb-xa)*(xb-xa)+(yb-ya)*(yb-ya))
+    cos = (xb-xa)/length
+    sin = (yb-ya)/length
     
     
     # coeffiecient matrix:
     A = [[0 for y in xrange(2)] for x in xrange(2)]
-    A[0][0] = xB-xA
+    A[0][0] = xb-xa
     A[0][1] = -sin 
-    A[1][0] = yB-yA
+    A[1][0] = yb-ya
     A[1][1] = cos 
         
     # known term:
     b = [[0 for y in xrange(1)] for x in xrange(2)]
-    b[0] = xP-xA
-    b[1] = yP-yA
+    b[0] = xp-xa
+    b[1] = yp-ya
     
     # solution:
     z = numpy.linalg.solve(A, b)
@@ -90,14 +90,14 @@ def pointLine(xA, yA, xB, yB, xP, yP):
     t = z[1]
     
     # projection point
-    xQ=xA+s*(xB-xA);
-    yQ=yA+s*(yB-yA);
+    xq=xa+s*(xb-xa);
+    yq=ya+s*(yb-ya);
 
-    print ("projection point: ", xQ, yQ)
+    print ("projection point: ", xq, yq)
     print ("distance: ", t)
  
-    plt.plot([xA, xA+1*(xB-xA)], [yA,yA+1*(yB-yA)])
-    plt.plot([xP, xP+t*sin], [yP,yP-t*cos])
+    plt.plot([xa, xa+1*(xb-xa)], [ya,ya+1*(yb-ya)])
+    plt.plot([xp, xp+t*sin], [yp,yp-t*cos])
     plt.gca().set_aspect('equal', adjustable='box')
     
     plt.show()

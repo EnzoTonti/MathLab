@@ -10,4 +10,4 @@
 
    .. autosummary::
    
-      pointLine
+      point_line
