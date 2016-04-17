@@ -39,6 +39,6 @@ Content
    source/about
    source/install
    source/api
-   source/ipynb/examples.ipynb
+   source/demo
    source/credits
 
