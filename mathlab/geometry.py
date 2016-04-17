@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # ####################################################################################
-# Copyright (c) 2016, Enzo Tonti                                                     #
+# Copyright (c) 2016, Francesco De Carlo                                             #
 # All rights reserved.                                                               #
 #                                                                                    #
 # Redistribution and use in source and binary forms, with or without                 #
@@ -18,16 +18,16 @@
 #   contributors may be used to endorse or promote products derived from             #
 #   this software without specific prior written permission.                         #
 #                                                                                    #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOlengthDERS AND CONTRIBUTORS "AS IS"        #
-# AND ANY ExpRESS OR IMPlengthIED WARRANTIES, INClengthUDING, BUT NOT lengthIMITED TO, THE          #
-# IMPlengthIED WARRANTIES OF MERCHANTABIlengthITY AND FITNESS FOR A PARTICUlengthAR PURPOSE ARE     #
-# DISClengthAIMED. IN NO EVENT SHAlengthlength THE COPYRIGHT HOlengthDER OR CONTRIBUTORS BE lengthIABlengthE       #
-# FOR ANY DIRECT, INDIRECT, INCIDENTAlength, SPECIAlength, EXEMPlengthARY, OR CONSEQUENTIAlength         #
-# DAMAGES (INClengthUDING, BUT NOT lengthIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR         #
-# SERVICES; lengthOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER         #
-# CAUSED AND ON ANY THEORY OF lengthIABIlengthITY, WHETHER IN CONTRACT, STRICT lengthIABIlengthITY,      #
-# OR TORT (INClengthUDING NEGlengthIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE      #
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBIlengthITY OF SUCH DAMAGE.               #
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"        #
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE          #
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE     #
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE       #
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL         #
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR         #
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER         #
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,      #
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE      #
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.               #
 # ####################################################################################
 
 """
@@ -47,8 +47,56 @@ __credits__ = "Francesco De Carlo"
 __copyright__ = "Copyright (c) 2016"
 __version__ = "0.1.0"
 __docformat__ = "restructuredtext en"
-__all__ = ['point_line']
+__all__ = ['point_line',
+           'gravity_center',
+           'electric_dipole']
 
+def electric_dipole(xa, ya, xb, yb, xp, yp):
+    a = 1
+    
+def gravity_center(points):
+
+    x = []    y = []    for i in xrange(len(points)):        x.append(points[i][0])        y.append(points[i][1])
+
+    print ("x[]", x)
+    print ("y[]", y)
+        area = []
+    n_sides = len(points)-1
+    k = 0
+    while k < n_sides:
+        area.append(((x[k] * y[k+1]) - (x[k+1] * y[k])) / 2.0)
+        #print ((x[k] * y[k+1]) - (x[k+1] * y[k])) / 2.0
+        k = k + 1
+    print ("area[]:", area)
+    
+    total_area = 0
+    k = 0
+    while k < n_sides:
+        total_area += area[k]
+        k += 1
+        
+    print ("total area: ", total_area)   
+    xg = []
+    yg = []
+    k=0
+    while k < n_sides:
+        xg.append((0+x[k]+x[k+1])/float(n_sides-1))
+        yg.append((0+y[k]+y[k+1])/float(n_sides-1))
+        k += 1  
+    S = 0
+    T = 0
+    k = 0    while k < n_sides:
+        S = S + area[k]*xg[k];        T = T + area[k]*yg[k];
+        k += 1
+    XG = S/total_area
+    YG = T/total_area
+
+    plt.scatter(x,y)
+    plt.plot(x, y)
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.scatter(XG, YG)    plt.show()
+    
+        
 def point_line(xa, ya, xb, yb, xp, yp):
     """
     Given a line r passing through two points A and B and assigned a point P, 

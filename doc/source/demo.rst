@@ -7,5 +7,6 @@ To run these examples on your computer
 `run <http://jupyter.readthedocs.org/en/latest/running.html>`_
 `Jupyter Notebook <http://ipython.org/notebook.html>`_
 
-.. toctree::   ipynb/pointline.ipynb
+.. toctree::   ipynb/point_line.ipynb
+   ipynb/gravity_center.ipynb
 .. automodule:: project   :members:   :undoc-members:   :show-inheritance: 
