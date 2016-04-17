@@ -10,4 +10,7 @@
 
    .. autosummary::
    
-      pointLine
+      point_line
+      gravity_center
+      electric_dipole
+
