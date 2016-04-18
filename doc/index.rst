@@ -2,8 +2,9 @@
 Math & Physics Lab
 ==================
 
-The professor Enzo Tonti's `Math & Physics Lab <https://github.com/decarlof/mathlab>`_ project aims to provide 
-a series of small software programs implementing basic math and physics equations.
+The professor Enzo Tonti's `Math & Physics Lab <https://github.com/enzotonti/mathlab>`_
+project aims to provide  a series of small software programs implementing basic 
+math and physics equations.
 
 .. image:: source/img/mathlab.png
    :width: 640px
@@ -26,9 +27,9 @@ Features
 Contribute
 ----------
 
-* Documentation: https://github.com/decarlof/mathlab/tree/master/doc
-* Issue Tracker: https://github.com/decarlof/mathlab/issues
-* Source Code: https://github.com/decarlof/mathlab
+* Documentation: https://github.com/enzotonti/mathlab/tree/master/doc
+* Issue Tracker: https://github.com/enzotonti/mathlab/issues
+* Source Code: https://github.com/enzotonti/mathlab
 
 Content
 -------
