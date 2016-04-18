@@ -3,7 +3,7 @@ Install
 =======
 
 This section covers the basics of how to download and install the
-`Math & Physics Lab <https://github.com/decarlof/mathlab>`_ project.
+`Math & Physics Lab <https://github.com/enzotonti/mathlab>`_ project.
 
 .. contents:: Contents:
    :local:
@@ -12,10 +12,10 @@ This section covers the basics of how to download and install the
 Installing from source
 ======================
   
-Clone the `Math & Physics Lab <https://github.com/decarlof/mathlab>`_ project 
+Clone the `Math & Physics Lab <https://github.com/enzotonti/mathlab>`_ project 
 from `GitHub <https://github.com>`_ repository::
 
-    git clone https://github.com/decarlof/mathlab.git mathlab
+    git clone https://github.com/enzotonti/mathlab.git mathlab
 
 then::
 
