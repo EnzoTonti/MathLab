@@ -51,52 +51,87 @@ __all__ = ['point_line',
            'gravity_center',
            'electric_dipole']
 
-def electric_dipole(xa, ya, xb, yb, xp, yp):
-    a = 1
-    
-def gravity_center(points):
+def electric_dipole(charge_location):
+    """
+    To do: complete documentation
 
-    x = []    y = []    for i in xrange(len(points)):        x.append(points[i][0])        y.append(points[i][1])
+    Parameters
+    ----------
+    charge_location
+        Coordinate ....
+    """
+
+    charge_x = []    charge_y = []    
+    for i in xrange(len(charge_location)):        charge_x.append(charge_location[i][0])        charge_y.append(charge_location[i][1])
+
+    n = 20  
+    p = 0.5
+    c = 1
+    Q1 = +1.0
+    Q2 = -1.0
+    fs = 0.4;
+    for i in range(1, n):        for j in range(1, n):            x = -5.25 + i * p       
+            y = -5.25 + j * p
+                        r1 = math.sqrt(math.pow((x - charge_x[0]), 2) +  math.pow((y - charge_y[0]), 2))            r2 = math.sqrt(math.pow((x - charge_x[1]), 2) + math.pow((y - charge_y[1]), 2))            Ex= c * Q1 * (x - charge_x[0]) / math.pow(r1, 3) + c * Q2* (x - charge_x[1]) / math.pow(r2, 3)            Ey= c * Q1 * (y- charge_y[0]) / math.pow(r1, 3) + c * Q2* (y- charge_y[1]) / math.pow(r2, 3)            
+            xa = x + fs * Ex
+            ya = y + fs * Ey             s1 = math.pow((x - charge_x[0]), 2) + math.pow((y - charge_y[0]), 2)
+            s2 =  math.pow((x - charge_x[1]), 2) +  math.pow((y - charge_y[0]), 2)            if  (s1 > p) & (s2 > p):                plt.plot([x, xa], [y, ya])
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.show()
+
+
+def gravity_center(points):
+    """
+    To do: complete documentation
+
+    Parameters
+    ----------
+    points
+        Coordinate ....
+    """
+
+    n_points = len(points)
+    n_sides = n_points - 1
+    print (n_points, n_sides)
+    
+    x = []    y = []    for i in xrange(n_points):        x.append(points[i][0])        y.append(points[i][1])
 
     print ("x[]", x)
     print ("y[]", y)
-        area = []
-    n_sides = len(points)-1
-    k = 0
-    while k < n_sides:
+        for k in range (0, n_points):
+        plt.plot([0, x[k]], [0, y[k]])
+
+    area = []
+    for k in range (0, n_sides):
         area.append(((x[k] * y[k+1]) - (x[k+1] * y[k])) / 2.0)
-        #print ((x[k] * y[k+1]) - (x[k+1] * y[k])) / 2.0
-        k = k + 1
     print ("area[]:", area)
     
     total_area = 0
-    k = 0
-    while k < n_sides:
+    for k in range (0, n_sides):
         total_area += area[k]
         k += 1
         
     print ("total area: ", total_area)   
     xg = []
     yg = []
-    k=0
-    while k < n_sides:
+    for k in range (0, n_sides):
         xg.append((0+x[k]+x[k+1])/float(n_sides-1))
         yg.append((0+y[k]+y[k+1])/float(n_sides-1))
-        k += 1  
-    S = 0
-    T = 0
-    k = 0    while k < n_sides:
-        S = S + area[k]*xg[k];        T = T + area[k]*yg[k];
-        k += 1
-    XG = S/total_area
-    YG = T/total_area
+  
+    s = 0
+    t = 0
+    for k in range (0, n_sides):
+        s = s + area[k]*xg[k];        t = t + area[k]*yg[k];
+
+    XG = s/total_area
+    YG = t/total_area
 
     plt.scatter(x,y)
     plt.plot(x, y)
     plt.gca().set_aspect('equal', adjustable='box')
-    plt.scatter(XG, YG)    plt.show()
-    
-        
+    plt.scatter(XG, YG)    plt.show()    
+
+
 def point_line(xa, ya, xb, yb, xp, yp):
     """
     Given a line r passing through two points A and B and assigned a point P, 

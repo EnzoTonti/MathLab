@@ -9,4 +9,5 @@ To run these examples on your computer
 
 .. toctree::   ipynb/point_line.ipynb
    ipynb/gravity_center.ipynb
+   ipynb/electric_dipole.ipynb
 .. automodule:: project   :members:   :undoc-members:   :show-inheritance: 
