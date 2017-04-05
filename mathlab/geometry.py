@@ -70,7 +70,9 @@ def electric_dipole(charge_location):
     Q1 = +1.0
     Q2 = -1.0
     fs = 0.4;
-    for i in range(1, n):        for j in range(1, n):            x = -5.25 + i * p       
+    for i in range(1, n):        
+        for j in range(1, n):            
+            x = -5.25 + i * p       
             y = -5.25 + j * p
             r1 = math.sqrt(math.pow((x - charge_x[0]), 2) +  math.pow((y - charge_y[0]), 2))
             r2 = math.sqrt(math.pow((x - charge_x[1]), 2) + math.pow((y - charge_y[1]), 2))
