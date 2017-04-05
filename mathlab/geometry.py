@@ -72,12 +72,18 @@ def electric_dipole(charge_location):
     fs = 0.4;
     for i in range(1, n):        for j in range(1, n):            x = -5.25 + i * p       
             y = -5.25 + j * p
-                        r1 = math.sqrt(math.pow((x - charge_x[0]), 2) +  math.pow((y - charge_y[0]), 2))            r2 = math.sqrt(math.pow((x - charge_x[1]), 2) + math.pow((y - charge_y[1]), 2))            Ex= c * Q1 * (x - charge_x[0]) / math.pow(r1, 3) + c * Q2* (x - charge_x[1]) / math.pow(r2, 3)            Ey= c * Q1 * (y- charge_y[0]) / math.pow(r1, 3) + c * Q2* (y- charge_y[1]) / math.pow(r2, 3)            
+            r1 = math.sqrt(math.pow((x - charge_x[0]), 2) +  math.pow((y - charge_y[0]), 2))
+            r2 = math.sqrt(math.pow((x - charge_x[1]), 2) + math.pow((y - charge_y[1]), 2))
+            Ex= c * Q1 * (x - charge_x[0]) / math.pow(r1, 3) + c * Q2* (x - charge_x[1]) / math.pow(r2, 3)
+            Ey= c * Q1 * (y- charge_y[0]) / math.pow(r1, 3) + c * Q2* (y- charge_y[1]) / math.pow(r2, 3)       
             xa = x + fs * Ex
-            ya = y + fs * Ey             s1 = math.pow((x - charge_x[0]), 2) + math.pow((y - charge_y[0]), 2)
-            s2 =  math.pow((x - charge_x[1]), 2) +  math.pow((y - charge_y[0]), 2)            if  (s1 > p) & (s2 > p):                plt.plot([x, xa], [y, ya])
-    plt.gca().set_aspect('equal', adjustable='box')
-    plt.show()
+            ya = y + fs * Ey             
+            s1 = math.pow((x - charge_x[0]), 2) + math.pow((y - charge_y[0]), 2)
+            s2 =  math.pow((x - charge_x[1]), 2) +  math.pow((y - charge_y[0]), 2)            
+            if  (s1 > p) & (s2 > p):                
+                plt.plot([x, xa], [y, ya])
+                plt.gca().set_aspect('equal', adjustable='box')
+                plt.show()
 
 
 def gravity_center(points):
