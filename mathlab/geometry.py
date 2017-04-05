@@ -61,8 +61,11 @@ def electric_dipole(charge_location):
         Coordinate ....
     """
 
-    charge_x = []    charge_y = []    
-    for i in xrange(len(charge_location)):        charge_x.append(charge_location[i][0])        charge_y.append(charge_location[i][1])
+    charge_x = []    
+    charge_y = []    
+    for i in xrange(len(charge_location)):        
+        charge_x.append(charge_location[i][0])        
+        charge_y.append(charge_location[i][1])
 
     n = 20  
     p = 0.5
@@ -102,11 +105,15 @@ def gravity_center(points):
     n_sides = n_points - 1
     print (n_points, n_sides)
     
-    x = []    y = []    for i in xrange(n_points):        x.append(points[i][0])        y.append(points[i][1])
+    x = []    
+    y = []    
+    for i in xrange(n_points):        
+        x.append(points[i][0])        
+        y.append(points[i][1])
 
     print ("x[]", x)
     print ("y[]", y)
-        for k in range (0, n_points):
+    for k in range (0, n_points):
         plt.plot([0, x[k]], [0, y[k]])
 
     area = []
@@ -129,7 +136,8 @@ def gravity_center(points):
     s = 0
     t = 0
     for k in range (0, n_sides):
-        s = s + area[k]*xg[k];        t = t + area[k]*yg[k];
+        s = s + area[k]*xg[k];        
+        t = t + area[k]*yg[k];
 
     XG = s/total_area
     YG = t/total_area
